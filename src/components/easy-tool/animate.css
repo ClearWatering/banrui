@@ -1,0 +1,26 @@
+.et-fade-in {
+  animation-delay: 100ms;
+  -webkit-animation-delay: 100ms; /* Safari 和 Chrome */
+  animation: et-fade-in 1s;
+}
+@keyframes et-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.et-fade-out {
+  animation-delay: 100ms;
+  -webkit-animation-delay: 100ms; /* Safari 和 Chrome */
+  animation: et-fade-out 1s;
+}
+@keyframes et-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

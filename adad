@@ -1,0 +1,293 @@
+[33mcommit b40d79104602485516717ff73732710e84cdf86c[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: e3df714 34bb189
+Author: liujiang <liujiang@si-tech.com.cn>
+Date:   Wed Nov 7 14:22:50 2018 +0800
+
+    Merge branch 'ued-develop' into 'master'
+
+    Ued develop
+
+    合并mirror
+
+    See merge request !5
+
+[33mcommit 34bb189071fa027e66a8f5843886246dbceb1017[m[33m ([m[1;31morigin/ued-develop[m[33m)[m
+Author: wangrk <wangrk@si-tech.com.cn>
+Date:   Tue Nov 6 18:07:29 2018 +0800
+
+    现场开户
+
+[33mcommit f6d637e870d1ab4cf5e37c2b11d599e3c70f111d[m
+Author: wangrk <wangrk@si-tech.com.cn>
+Date:   Mon Nov 5 18:21:40 2018 +0800
+
+    开户流程
+
+[33mcommit e3df7144855af9a3e670e88148c65ed1a8a3eca2[m
+Merge: e88fcc4 4067e3b
+Author: johnshere <john__cloud@163.com>
+Date:   Sun Nov 4 10:08:26 2018 +0800
+
+    Merge branch 'master' of
+
+[33mcommit e88fcc445657fee2489890ef2809771e8c3d69a5[m
+Author: johnshere <john__cloud@163.com>
+Date:   Sun Nov 4 10:08:22 2018 +0800
+
+    优化动效
+
+[33mcommit 4067e3bb5245a3a934b0f1e1b5e02c3271953ac0[m
+Merge: 5aee453 b07fa3a
+Author: liujiang <liujiang@si-tech.com.cn>
+Date:   Sun Nov 4 09:45:31 2018 +0800
+
+    Merge branch 'ued-develop' into 'master'
+
+    Ued develop
+
+    首页
+
+    See merge request !4
+
+[33mcommit b07fa3af44b7344029f157fa9cc5f29eeeee78d9[m
+Author: wangrk <wangrk@si-tech.com.cn>
+Date:   Fri Nov 2 18:40:05 2018 +0800
+
+    首页+登录
+
+[33mcommit 5aee453242664cb059b921016fc221ef9f4a7d09[m
+Author: johnshere <john__cloud@163.com>
+Date:   Fri Nov 2 09:26:10 2018 +0800
+
+    优化
+
+[33mcommit 0ea8d714f1d09cfbe53ec25101d68f198f2dc007[m
+Author: wangrk <wangrk@si-tech.com.cn>
+Date:   Thu Nov 1 18:35:41 2018 +0800
+
+    沃行销
+
+[33mcommit a3edd8b7b2f4eb1896eba2c52c1d5e3ee8649d30[m
+Author: johnshere <john__cloud@163.com>
+Date:   Thu Nov 1 11:07:44 2018 +0800
+
+    优化
+
+[33mcommit bcaf69a8e51190e08a28d332de564b1123de4447[m
+Author: johnshere <john__cloud@163.com>
+Date:   Thu Nov 1 09:49:23 2018 +0800
+
+    优化
+
+[33mcommit 8cc669464f0c4365e9f6730a677450ab14c623cc[m
+Author: johnshere <john__cloud@163.com>
+Date:   Wed Oct 31 17:09:06 2018 +0800
+
+    尝试修复下滑回弹导致头部收起的bug
+
+[33mcommit c27597339346751266cc3ae9c13dc0ce4805868d[m
+Author: johnshere <john__cloud@163.com>
+Date:   Wed Oct 31 15:54:08 2018 +0800
+
+    动效完善
+
+[33mcommit 20b133cecf7d28bccd06420584ec9fa9db4df442[m
+Author: johnshere <john__cloud@163.com>
+Date:   Wed Oct 31 15:27:33 2018 +0800
+
+    全部反馈，我的反馈
+
+[33mcommit b4e54fd6ca1bc09d5a466ee1c7351d0843b79627[m
+Author: johnshere <john__cloud@163.com>
+Date:   Wed Oct 31 08:53:46 2018 +0800
+
+    优化图片懒加载、组件keepAlive
+
+[33mcommit 4cb225287b8cd1fef57cc9b21514cdccc4335f91[m
+Author: johnshere <john__cloud@163.com>
+Date:   Sat Oct 27 17:56:21 2018 +0800
+
+    添加后退事件公共逻辑
+
+[33mcommit 3f7e7fda6712cb1fd2337291ee39d16bed28892f[m
+Merge: be7f1cf e985ab9
+Author: johnshere <john__cloud@163.com>
+Date:   Thu Oct 25 09:03:37 2018 +0800
+
+    merge conflit
+
+[33mcommit be7f1cf8204c3e2808abfb520cbfb26b74df53a4[m
+Author: johnshere <john__cloud@163.com>
+Date:   Thu Oct 25 08:56:31 2018 +0800
+
+    全部反馈
+
+[33mcommit e985ab9e038d3d3892f1dd37ca6d9d0b12467c35[m
+Author: wangrk <wangrk@si-tech.com.cn>
+Date:   Wed Oct 24 17:53:12 2018 +0800
+
+    遗留两个动效版本
+
+[33mcommit a4a904584e45093c6c55682eabc6f8d380036a94[m
+Author: johnshere <john__cloud@163.com>
+Date:   Tue Oct 23 10:30:01 2018 +0800
+
+    全部反馈
+
+[33mcommit f593640068740a0af7b8db115f3b2914d7c58a38[m
+Merge: 05d2819 85012b1
+Author: liujiang <liujiang@si-tech.com.cn>
+Date:   Mon Oct 22 09:18:32 2018 +0800
+
+    Merge branch 'ued-develop' into 'master'
+
+    Ued develop
+
+    mirror
+
+    See merge request !2
+
+[33mcommit 85012b112719449fd58ebe9b8a85e60ba96e365b[m
+Author: wangrk <wangrk@si-tech.com.cn>
+Date:   Thu Oct 18 17:37:35 2018 +0800
+
+     增加回退
+
+[33mcommit cf01a322caeae0ac8afb64fc443caa34ab0589eb[m
+Author: wangrk <wangrk@si-tech.com.cn>
+Date:   Thu Oct 18 14:49:51 2018 +0800
+
+    allback myback finished
+
+[33mcommit 05d281925a428fe2b05b02f7f8338534ee298968[m
+Merge: de4d498 877c3e6
+Author: liujiang <liujiang@si-tech.com.cn>
+Date:   Thu Oct 18 08:53:05 2018 +0800
+
+    Merge branch 'ued-develop' into 'master'
+
+    mirror
+
+    合并简易的mirror
+
+    See merge request !1
+
+[33mcommit 877c3e6b9c3566f1dbe3a6f95174f81e3aec91fd[m
+Author: wangrk <wangrk@si-tech.com.cn>
+Date:   Wed Oct 17 17:32:46 2018 +0800
+
+    allback finished
+
+[33mcommit de4d498a3fb5bd130a5149ed451c60eac6d0f0d6[m
+Author: johnshere <john__cloud@163.com>
+Date:   Wed Oct 17 10:28:03 2018 +0800
+
+    constants修改
+
+[33mcommit f7974c1e3d765609776e9c30e6eced588fd8eef6[m
+Author: wangrk <wangrk@si-tech.com.cn>
+Date:   Tue Oct 16 18:17:00 2018 +0800
+
+    version 1.0
+
+[33mcommit ea003c0527fbf84aa811a8428f27e9ff5e2206cb[m
+Author: johnshere <john__cloud@163.com>
+Date:   Mon Oct 15 09:04:26 2018 +0800
+
+    suggestion的mirror
+
+[33mcommit cf0694416d06606ef77ae61d25e7d4a52a41e84a[m
+Author: johnshere <john__cloud@163.com>
+Date:   Wed Oct 10 21:00:51 2018 +0800
+
+    添加suggestion
+
+[33mcommit a4d8459eaa153065403a2e3244b6c78bf7315c49[m
+Author: johnshere <john__cloud@163.com>
+Date:   Sat Sep 29 16:16:56 2018 +0800
+
+    更新开发手册
+
+[33mcommit 7f5113decc6afa8121cf8f75d00c359056c80acd[m
+Author: johnshere <john__cloud@163.com>
+Date:   Fri Sep 28 20:03:14 2018 +0800
+
+    版本流程设想
+
+[33mcommit 13309c4c6732d6772aafc37658b3ae0fcf38595c[m
+Author: johnshere <john__cloud@163.com>
+Date:   Fri Sep 28 20:01:18 2018 +0800
+
+    版本开发流程设想
+
+[33mcommit b65046c7f1a2efb8cded6db0899b1d722aa2c79b[m[33m ([m[1;33mtag: 1.0.0-beta[m[33m)[m
+Author: johnshere <john__cloud@163.com>
+Date:   Fri Sep 28 16:01:22 2018 +0800
+
+    更新开发手册
+
+[33mcommit a44a291c899927e5cb881b7a5068c44016381968[m
+Author: johnshere <john__cloud@163.com>
+Date:   Thu Sep 27 18:37:19 2018 +0800
+
+    编写开发流程
+
+[33mcommit 0caf408318aa88fc1a88b2a748d02d5e651525c0[m
+Author: johnshere <john__cloud@163.com>
+Date:   Thu Sep 27 16:48:27 2018 +0800
+
+    更新标题级别
+
+[33mcommit ae371c0632f0f10d7b5b36f05756cb7d9ce04f14[m
+Author: liujiang <liujiang@si-tech.com.cn>
+Date:   Thu Sep 27 15:44:51 2018 +0800
+
+    更新链接
+
+[33mcommit 6c0cd243d131e502381becab71483a0dbdd6b3e7[m
+Author: johnshere <john__cloud@163.com>
+Date:   Thu Sep 27 15:42:03 2018 +0800
+
+    图片链接
+
+[33mcommit b2b2b32e7eb6ef17d79c451c449e5ece366f1fee[m
+Author: johnshere <john__cloud@163.com>
+Date:   Thu Sep 27 15:38:21 2018 +0800
+
+    更换图片链接
+
+[33mcommit 49ff251a855b798d527a21c3bf07aae234ca3217[m
+Author: johnshere <john__cloud@163.com>
+Date:   Thu Sep 27 15:30:27 2018 +0800
+
+    开发手册文档
+
+[33mcommit b5f55d90b295a04ed26d405cd2b03d9f395c61d7[m
+Author: johnshere <john__cloud@163.com>
+Date:   Thu Sep 27 13:49:49 2018 +0800
+
+    移除
+
+[33mcommit e1798eaaf3b3280e8174a801c07b147f3f5b3ca0[m
+Author: johnshere <john__cloud@163.com>
+Date:   Thu Sep 27 13:44:33 2018 +0800
+
+    update
+
+[33mcommit a6603105d0e2983aa37378b71297d03d48427284[m
+Author: johnshere <john__cloud@163.com>
+Date:   Wed Sep 26 21:59:58 2018 +0800
+
+    路由调整
+
+[33mcommit ca6c05a3ff44a3f6b8475243ba813e4dbe91df50[m
+Author: johnshere <john__cloud@163.com>
+Date:   Wed Sep 26 21:47:04 2018 +0800
+
+    开发手册编写
+
+[33mcommit a04750d18b0d9a56bc5274f15fd493006fc3caff[m
+Author: johnshere <john__cloud@163.com>
+Date:   Wed Sep 26 14:39:35 2018 +0800
+
+    初始化
