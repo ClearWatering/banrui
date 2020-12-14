@@ -11,13 +11,9 @@ Es6Promise.polyfill()
 //  add request interceptors
 axios.interceptors.request.use(
   function (config) {
-    // 处理post请求格式，适配后台框架
-    console.log(config)
     return config
   },
   function (error) {
-    console.log('error', error)
-    // request error do something
     return Promise.reject(error)
   }
 )
@@ -28,8 +24,8 @@ axios.interceptors.response.use(
     if (response.data) {
       response.respBody = response.data
       let {
-        RETURN_CODE: code
-      } = response.data.code
+        code: code
+      } = response.data
       if (code === '0000') {
         response.respBody.IS_SUCCESS = true
       } else {

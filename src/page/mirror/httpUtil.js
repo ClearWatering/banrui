@@ -12,7 +12,13 @@ let instance = axios
 
 class httpUtil {
   loginInfo (params) {
-    return instance.post('banrui/user/login', params)
+    return instance.post('/banrui/user/login', params)
+  }
+  qryUser (params) {
+    return instance.post('/banrui/user/qryUser', params)
+  }
+  delUser (params) {
+    return instance.post('/banrui/user/delUser', params)
   }
 }
 

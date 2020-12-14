@@ -7,14 +7,7 @@
 -->
 <template>
   <div>
-    <div class="left-sider">
-      <div class="account-manager">账号管理</div>
-      <p class="newAccount">
-        <span @click="goSearchAccount">
-          账户查看
-        </span>
-      </p>
-    </div>
+    <leftSider></leftSider>
     <div class="right-sider">
       <!-- <p class="account-title">
         <span class="changepwd"
@@ -53,7 +46,10 @@
 </template>
 
 <script>
+import leftSider from '../components/left-sider'
 export default {
+  name: 'serviceIndex',
+  components: { leftSider },
   data () {
     return {
       userImg: require('../../assets/images/service/usrer.png'),
@@ -103,7 +99,7 @@ export default {
   color: #eee;
   cursor: pointer;
   display: inline-block;
-  width: 50%;
+  width: 49%;
   height: 100px;
   line-height: 100px;
   margin-top: 160px;

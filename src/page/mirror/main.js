@@ -13,10 +13,14 @@ import App from './App'
 import router from './router/index'
 // 引入axios，ajax工具
 import HttpUtil from './httpUtil'
+import ElementUI from 'element-ui'
 // index.html浏览器版本提示蒙版，针对PC端
 import '@/assets/css/index.cover.css'
+import 'element-ui/lib/theme-chalk/index.css'
 // 引入运行平台能力
 Vue.prototype.$http = new HttpUtil()
+// 引入ElementUI
+Vue.use(ElementUI)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
