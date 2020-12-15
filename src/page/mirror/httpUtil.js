@@ -11,14 +11,29 @@ import axios from '../../api/httpCore'
 let instance = axios
 
 class httpUtil {
+  // 登录
   loginInfo (params) {
     return instance.post('/banrui/user/login', params)
   }
+  // 查询当前用户
   qryUser (params) {
     return instance.post('/banrui/user/qryUser', params)
   }
+  // 删除用户
   delUser (params) {
     return instance.post('/banrui/user/delUser', params)
+  }
+  // 查询一级用户
+  qryFUser (params) {
+    return instance.post('/banrui/user/qryFUser', params)
+  }
+  // 查询所属平台
+  qryPlatform (params) {
+    return instance.post('/banrui/platform/qryPlatform', params)
+  }
+  // 新增用户
+  addUser (params) {
+    return instance.post('/banrui/user/addUser', params)
   }
 }
 

@@ -1,14 +1,13 @@
 <template>
   <div>
     <div class="left-sider">
-      <span>{{chooseNav}}</span>
       <div class="account-manager">账号管理</div>
       <p class="newAccount">
-        <span :class="[beAtv === 'serviceIndex'? 'active' : '' ]" @click="goPage('serviceIndex')">首页</span>
+        <span :class="[isActive === 'serviceIndex'? 'active' : '' ]" @click="goPage('serviceIndex')">首页</span>
       </p>
       <p class="newAccount">
         <span
-          :class="[beAtv === 'accountManager'? 'active' : '' ]"
+          :class="[isActive === 'accountManager'? 'active' : '' ]"
           @click="goPage('accountManager')"
         >账户查看</span>
       </p>
@@ -20,18 +19,12 @@
 export default {
   data() {
     return {
-      beAtv: '',
-      chooseNav: ''
+      beAtv:''
     }
   },
-  watch: {
-    chooseNav: {
-      handler(newNav, oldNav) {
-        this.beAtv = newNav
-      },
-      // 代表在wacth里声明了firstName这个方法之后立即先去执行handler方法
-      immediate: true,
-      deep: true
+  computed: {
+    isActive() {
+      return this.beAtv
     }
   },
   mounted() {
@@ -39,8 +32,7 @@ export default {
   },
   methods: {
     goPage(id) {
-      debugger
-      this.chooseNav = id
+      this.beAtv = id
       if (id === 'serviceIndex') {
         this.$router.push('serviceIndex')
       } else if (id === 'accountManager') {

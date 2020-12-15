@@ -11,6 +11,7 @@ import Vue from 'vue'
 import App from './App'
 // 引入路由管理
 import router from './router/index'
+import 'default-passive-events'
 // 引入axios，ajax工具
 import HttpUtil from './httpUtil'
 import ElementUI from 'element-ui'

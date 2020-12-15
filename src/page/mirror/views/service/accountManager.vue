@@ -32,7 +32,7 @@
             <el-table-column prop="userName" label="账号名称" align="center"></el-table-column>
             <el-table-column prop="password" label="密码" align="center"></el-table-column>
             <el-table-column prop="name" label="账号类型" align="center"></el-table-column>
-            <el-table-column prop="platformName" label="平台名称" align="center"></el-table-column>
+            <!-- <el-table-column prop="platformName" label="用户名称" align="center"></el-table-column> -->
             <el-table-column prop="createTime" label="创建时间" align="center"></el-table-column>
             <el-table-column fixed="right" label="操作" width="100" align="center">
               <template slot-scope="scope">
@@ -64,14 +64,18 @@
         :beforeClose="handleClose"
       >
         <el-form
-          ref="stateForm"
+          ref="userForm"
           :model="submitParam"
-          :rules="rules"
           label-width="110"
           label-position="right"
           class="popup-form"
         >
-          <el-form-item label="新建名称" prop="userName" class="col-item">
+          <el-form-item
+            label="新建名称"
+            :rules="[{ required: true, message: '请输入名称' }]"
+            prop="userName"
+            class="col-item"
+          >
             <el-input
               style="width:193px;"
               placeholder="请输入内容"
@@ -79,7 +83,12 @@
               clearable
             ></el-input>
           </el-form-item>
-          <el-form-item label="新建密码" prop="password" class="col-item">
+          <el-form-item
+            label="新建密码"
+            :rules="[{ required: true, message: '请输入账户密码' }]"
+            prop="password"
+            class="col-item"
+          >
             <el-input
               style="width:193px;"
               placeholder="请输入内容"
@@ -87,31 +96,50 @@
               clearable
             ></el-input>
           </el-form-item>
-          <el-form-item label="菜单权限" prop="funcList" class="col-item">
-            <el-select v-model="submitParam.menuChoose" multiple placeholder="请选择">
-              <el-option
-                v-for="item in menuList"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              ></el-option>
-            </el-select>
-          </el-form-item>
-          <el-form-item label="用户类型" prop="userType" class="col-item">
-            <el-select v-model="submitParam.userType" @change="selectUserType" placeholder="请选择">
+          <el-form-item
+            label="用户类型"
+            :rules="[{ required: true, message: '请选择用户类型' }]"
+            prop="userType"
+            class="col-item"
+          >
+            <!--  -->
+            <el-select @change="selectUserType" v-model="submitParam.userType" placeholder="请选择">
               <el-option
                 v-for="item in userTypeList"
-                :key="item.value"
+                :key="item.label"
                 :label="item.label"
                 :value="item.value"
               ></el-option>
             </el-select>
           </el-form-item>
-          <el-form-item label="所属平台" prop="platform" v-show="this.showPlatform" class="col-item">
-            <el-select v-model="submitParam.platform" placeholder="请选择">
+          <el-form-item
+            v-if="this.showMenu"
+            :rules="[{ required: true, message: '请选择菜单权限' }]"
+            label="菜单权限"
+            prop="funcId"
+            class="col-item"
+          >
+            <el-select v-model="submitParam.funcId" multiple placeholder="请选择">
+              <el-option
+                v-for="item in menuList"
+                :key="item.label"
+                :label="item.label"
+                :value="item.value"
+              ></el-option>
+            </el-select>
+          </el-form-item>
+          <!--   -->
+          <el-form-item
+            v-if="this.showPlatform"
+            label="一级用户"
+            :rules="[{ required: true, message: '一级用户' }]"
+            prop="platform"
+            class="col-item"
+          >
+            <el-select v-model="submitParam.parentId" placeholder="请选择">
               <el-option
                 v-for="item in platformList"
-                :key="item.value"
+                :key="item.label"
                 :label="item.label"
                 :value="item.value"
               ></el-option>
@@ -129,7 +157,7 @@
         </el-form>
         <div class="fun-wrap">
           <button class="button reset" @click="handleClose">取消</button>
-          <button class="button search" @click="submitLink">提交</button>
+          <button class="button search" @click="submitLink('userForm')">提交</button>
         </div>
       </newAccount>
     </div>
@@ -137,7 +165,7 @@
 </template>
 
 <script>
-  import { MessageBox } from 'element-ui'
+import { MessageBox } from 'element-ui'
 import newAccount from '../components/new-account'
 import leftSider from '../components/left-sider'
 export default {
@@ -152,22 +180,39 @@ export default {
           lebel: '1'
         },
         {
-          value: '一级平台',
+          value: '一级用户',
           lebel: '2'
         },
         {
-          value: '二级平台',
+          value: '二级用户',
           lebel: '4'
         }
       ],
       platformList: [],
       userType: '',
-      platform: '',
-      menuChoose: '',
-      menuList: [],
+      funcId: '',
+      menuList: [
+        {
+          value: '侵权详情',
+          lebel: '1'
+        },
+        {
+          value: '非网站侵权及举报',
+          lebel: '2'
+        },
+        {
+          value: '诉讼进度',
+          lebel: '3'
+        },
+        {
+          value: '版权登记',
+          lebel: '4'
+        }
+      ],
       userName: '',
       password: '',
       showPlatform: false,
+      showMenu: false,
       input: '',
       loadingPopup: false,
       editIndex: -1,
@@ -182,54 +227,10 @@ export default {
       submitParam: {
         userName: '',
         password: '',
-        menuChoose: '',
+        funcId: '',
         userType: '',
-        platform: ''
-      },
-      rules: {
-        userName: [
-          {
-            required: true,
-            message: '请输入名称'
-          },
-          {
-            pattern: /^[a-zA-Z0-9]+$/,
-            message: '账户名称不合法'
-          }
-        ],
-        password: [
-          {
-            required: true,
-            message: '请输入账户密码'
-          },
-          {
-            pattern: /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/,
-            message: '密码必须包含数字加英文字母'
-          }
-        ],
-        funcList: [
-          {
-            required: true,
-            message: '请选择菜单权限'
-          }
-        ],
-        userType: [
-          {
-            required: true,
-            message: '请选择用户类型'
-          }
-        ],
-        platform: [
-          {
-            required: () => {
-              return (
-                this.submitParam.userType === '一级平台' ||
-                this.submitParam.userType === '二级平台'
-              )
-            },
-            message: '请选择所属平台'
-          }
-        ]
+        parentId: '',
+        sys:''
       },
       stateOptions: [
         {
@@ -246,26 +247,68 @@ export default {
   },
   mounted() {
     this.loadList()
+    this.loadPlatform()
   },
   created: function() {},
   methods: {
     selectUserType() {
-      if (
-        this.submitParam.userType === '一级平台' ||
-        this.submitParam.userType === '二级平台'
-      ) {
+      if (this.submitParam.userType === '二级用户') {
+        this.showMenu = false
         this.showPlatform = true
+        this.submitParam.sys = '0'
+        this.submitParam.funcId = ''
+      } else if (this.submitParam.userType === '一级用户') {
+        this.showMenu = false
+        this.showPlatform = false
+        this.submitParam.sys = '0'
+        this.submitParam.parentId = sessionStorage.getItem('parentId')
+        this.submitParam.funcId = ''
+      } else {
+        this.showMenu = true
+        this.submitParam.sys = '1'
+        this.showPlatform = false
+        this.submitParam.parentId = sessionStorage.getItem('parentId')
+      }
+    },
+    async loadPlatform() {
+      try {
+        let resp = await this.$http.qryFUser({})
+        let { IS_SUCCESS, msg: msg, data: data } = resp.respBody
+        if (IS_SUCCESS) {
+          this.platformList = data.platformList.map(_ => {
+            return {
+              lebel: _.platformId,
+              value: _.platformName
+            }
+          })
+        } else {
+          MessageBox.close()
+          MessageBox.alert(msg)
+        }
+      } catch (e) {
+        MessageBox(e.message)
       }
     },
     async loadList() {
+      // sessionStorage.getItem('parentId')
       let params = {
-        parentId: sessionStorage.getItem('parentId')
+        id: sessionStorage.getItem('id'),
+        limit: '10',
+        page: '1',
+        userType: sessionStorage.getItem('userType')
       }
       try {
         let resp = await this.$http.qryUser(params)
         let { IS_SUCCESS, msg: msg, data: data } = resp.respBody
         if (IS_SUCCESS) {
-          this.tableData = data.userList
+          this.tableData = data.userList.map(_ => {
+            return {
+              name: _.name,
+              password: _.password,
+              userName: _.userName,
+              createTime: (_.createTime || '').split('T')[0]
+            }
+          })
           this.totalCount = data.total
         } else {
           MessageBox.close()
@@ -312,7 +355,7 @@ export default {
         let resp = await this.$http.delUser(params)
         let { IS_SUCCESS, msg: msg, data: data } = resp.respBody
         if (IS_SUCCESS) {
-          MessageBox.alert('删除账号成功！').then(_=>{
+          MessageBox.alert('删除账号成功！').then(_ => {
             this.loadList()
           })
         } else {
@@ -325,17 +368,21 @@ export default {
     },
     closePopup() {
       this.openNew = false
+      this.showMenu = false
+      this.showPlatform = false
       this.editIndex = -1
       this.submitParam = {
         userName: '',
         password: '',
-        menuChoose: '',
+        funcId: '',
         userType: '',
-        platform: ''
+        parentId: '',
+        sys : ''
       }
     },
-    submitLink() {
-      this.$refs['stateForm'].validate(valid => {
+    submitLink(userForm) {
+      console.log(this.submitParam.funcId)
+      this.$refs[userForm].validate(valid => {
         if (valid) {
           let params = this.submitParam
           params.updateStaffId = this.staffId
@@ -344,6 +391,28 @@ export default {
           return false
         }
       })
+    },
+    async submitData(params) {
+      if (this.editIndex === -1) { // 新增：
+        try {
+        let resp = await this.$http.addUser(params)
+        let { IS_SUCCESS, msg: msg, data: data } = resp.respBody
+        if (IS_SUCCESS) {
+          MessageBox.alert('新增账号成功！').then(_ => {
+            this.loadList()
+          })
+        } else {
+          MessageBox.close()
+          MessageBox.alert(msg)
+        }
+      } catch (e) {
+        MessageBox(e.message)
+      }
+        console.log('新增：' + JSON.stringify(params))
+      } else { // 修改：
+        console.log('修改：' + JSON.stringify(params))
+      }
+
     }
   }
 }
