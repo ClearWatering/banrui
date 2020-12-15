@@ -100,13 +100,11 @@
             label="用户类型"
             :rules="[{ required: true, message: '请选择用户类型' }]"
             prop="userType"
-            class="col-item"
-          >
-            <!--  -->
+            class="col-item">
             <el-select @change="selectUserType" v-model="submitParam.userType" placeholder="请选择">
               <el-option
                 v-for="item in userTypeList"
-                :key="item.label"
+                :key="item.value"
                 :label="item.label"
                 :value="item.value"
               ></el-option>
@@ -139,7 +137,7 @@
             <el-select v-model="submitParam.parentId" placeholder="请选择">
               <el-option
                 v-for="item in platformList"
-                :key="item.label"
+                :key="item.value"
                 :label="item.label"
                 :value="item.value"
               ></el-option>
@@ -176,16 +174,16 @@ export default {
       openNew: false,
       userTypeList: [
         {
-          value: '子管理员',
-          lebel: '1'
+          value: '1',
+          label: '子管理员'
         },
         {
-          value: '一级用户',
-          lebel: '2'
+          value: '2',
+          label: '一级用户'
         },
         {
-          value: '二级用户',
-          lebel: '4'
+          value: '4',
+          label: '二级用户'
         }
       ],
       platformList: [],
@@ -252,12 +250,12 @@ export default {
   created: function() {},
   methods: {
     selectUserType() {
-      if (this.submitParam.userType === '二级用户') {
+      if (this.submitParam.userType === '4') {
         this.showMenu = false
         this.showPlatform = true
         this.submitParam.sys = '0'
         this.submitParam.funcId = ''
-      } else if (this.submitParam.userType === '一级用户') {
+      } else if (this.submitParam.userType === '2') {
         this.showMenu = false
         this.showPlatform = false
         this.submitParam.sys = '0'
@@ -277,8 +275,8 @@ export default {
         if (IS_SUCCESS) {
           this.platformList = data.platformList.map(_ => {
             return {
-              lebel: _.platformId,
-              value: _.platformName
+              lebel: _.platformName,
+              value: _.platformId
             }
           })
         } else {
